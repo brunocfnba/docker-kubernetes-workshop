@@ -34,7 +34,7 @@ You should see the the DESIRED should be 3 since we want 3 replicas and current 
 Download the 'service-pyapp.yml' file and save it in the same lab4 folder.<BR>
 From the same directory you have your file create the new service running `kubectl create -f service-pyapp.yml`.<BR>
 When done run `kubectl get services` and check that you have the service running.
->Go through the service-pyapp.yml file so you have a better understanding of what is going on. This service is of type 'NodePort', reposnsible to expose the internal service to the outside. In our case the service bridges port 8080 (from our app) into port 31001. FOr more details on services click [here](https://kubernetes.io/docs/concepts/services-networking/service/).
+>Go through the service-pyapp.yml file so you have a better understanding of what is going on. This service is of type 'NodePort', reposnsible to expose the internal service to the outside. In our case the service bridges port 8080 (from our app) into port 31001. For more details on services click [here](https://kubernetes.io/docs/concepts/services-networking/service/).
 
 9. To get our external IP info we have to check what is the Kubernetes cluster worker public IP.<BR>
 Run `bx cs cluster` to get your cluster name then run `bx cs workers <your cluster name>`, get the IP listed under 'Public IP'.
