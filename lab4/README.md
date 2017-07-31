@@ -26,17 +26,19 @@ Run `bx cs cluster-config <your cluster name>`. This command will return an expo
 Copy and paste the `export KUBECONFIG=...` command and run it in your terminal.<BR>
 To test your setup run `kubectl get deployments`, if everything is ok you should get the 'No resources found' message.
 
-7. To create your new deployment run `kubectl create -f dep-pyapp.yml`. Check it's been successfully created running `kubectl get deployments`.<BR>
+7. Open the 'dep-pyapp.yml' file and replace the <> on line 14 with your container space registry.
+
+8. To create your new deployment run `kubectl create -f dep-pyapp.yml`. Check it's been successfully created running `kubectl get deployments`.<BR>
 You should see the the DESIRED should be 3 since we want 3 replicas and current 3 as well because Kubernetes is working to ensure we have all the replicas working.
 >Kubernetes deployment are used to create redundancy accross your pods (the docker containers) as well as allow you to update your containers withou downtime. Click [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for more details.
 
-8. Now we need to make this deployment available to the world so everyone can access your microservice. For that we are going to create a service.<BR>
+9. Now we need to make this deployment available to the world so everyone can access your microservice. For that we are going to create a service.<BR>
 Download the 'service-pyapp.yml' file and save it in the same lab4 folder.<BR>
 From the same directory you have your file create the new service running `kubectl create -f service-pyapp.yml`.<BR>
 When done run `kubectl get services` and check that you have the service running.
 >Go through the service-pyapp.yml file so you have a better understanding of what is going on. This service is of type 'NodePort', reposnsible to expose the internal service to the outside. In our case the service bridges port 8080 (from our app) into port 31001. For more details on services click [here](https://kubernetes.io/docs/concepts/services-networking/service/).
 
-9. To get our external IP info we have to check what is the Kubernetes cluster worker public IP.<BR>
+10. To get our external IP info we have to check what is the Kubernetes cluster worker public IP.<BR>
 Run `bx cs cluster` to get your cluster name then run `bx cs workers <your cluster name>`, get the IP listed under 'Public IP'.
 
-10. Open your browser and go to `<your public IP>:31001/myservice/list` and you should see your Python app working. Good job!
+11. Open your browser and go to `<your public IP>:31001/myservice/list` and you should see your Python app working. Good job!
