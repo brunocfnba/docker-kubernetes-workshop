@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dep-pyapp
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: pyapp
+    spec:
+      containers:
+      - name: pyapp-container
+        image: registry.ng.bluemix.net/<your registry name>/pyapp-alpine:latest
+        ports:
+        - name: pyapp-port
+          containerPort: 8080
