@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: nodeapp-container
-        image: registry.ng.bluemix.net/brunocf_containers/node-alpine:latest
+        image: registry.ng.bluemix.net/<your registry space name>/node-alpine:latest
         ports:
         - name: nodeapp-port
           containerPort: 8081
