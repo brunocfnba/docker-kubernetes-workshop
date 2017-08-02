@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dep-node
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+      - name: nodeapp-container
+        image: registry.ng.bluemix.net/brunocf_containers/node-alpine:latest
+        ports:
+        - name: nodeapp-port
+          containerPort: 8081
+        volumeMounts:
+        - mountPath: /opt/service-bind
+          name: service-bind-volume
+      volumes:
+      - name: service-bind-volume
+        secret:
+          defaultMode: 420
+          secretName: binding-nlu
