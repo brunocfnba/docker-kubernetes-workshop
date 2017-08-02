@@ -23,13 +23,12 @@ ls -l
 
 &nbsp;&nbsp;&nbsp;You should be able to view your file (myfile.txt) listed in your container.
 
-5. To show how images and containers work, let's assume you created this file as a task for building up your new container like installing something, changing some setting, etc.
-
-&nbsp;&nbsp;&nbsp;Leave your container prompt by typing `exit`. You'll get back to your local machine terminal.
+5. To show how images and containers work, let's assume you created this file as a task for building up your new container like installing something, changing some setting, etc.<BR>
+Leave your container prompt by typing `exit`. You'll get back to your local machine terminal.
 
 6. To list all your container run `docker ps -a`. You'll see your containeris stopped (with Exited in the STATUS column)
 
-7. Remove your container running `docker rm <conatiner name>` - in our case myfirstcontainer and check your containers again. You shoud see nothing there this time.
+7. Remove your container running `docker rm <conatiner name>` - in our case myfirstcontainer and check your containers again.<BR>You shoud see nothing there this time.
 
 8. Let's create a container again using the same ubuntu image. Run step 3 again and the go to your `/home` and look for your directory or your file. You probably won't find them.
 > All you previosly did is gone since all your changes live while you don't remove your container. This is good since if you mess up you just have to remove and recreate your container but, what if you need to save your changes to keep working on it? Hopefully there's way to do that!
