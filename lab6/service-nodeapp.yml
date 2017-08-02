@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-nodeapp
+spec:
+  ports:
+  - port: 31002
+    nodePort: 31002
+    targetPort: nodeapp-port
+    protocol: TCP
+  selector:
+    app: nodeapp
+  type: NodePort
