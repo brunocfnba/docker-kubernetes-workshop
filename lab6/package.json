@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cf-deployment-tracker-client": "latest",
+    "express": "latest",
+    "mongodb": "^2.2.30",
+    "watson-developer-cloud": "latest"
+  }
+}
