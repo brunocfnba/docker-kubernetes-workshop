@@ -4,7 +4,7 @@ What if I tell you there's even a simpler way to create your images!?
 I'm talking about Dockerfiles which allows us to actually "develop infrastructure". Using Dockerfile we can create our images in a more consistent way, store it using Git, develop it in collaboration, implement devOps and a lot more.
 We are going to use a Dcokerfile I've already created to build our image and run our container.
 
-1. Download or copy and paste the files (Dockerfile and app.py) from this directory into your local machine, save them in the same directory.
+1. Download the files (Dockerfile and app.py) from this directory into your local machine, save them in the same directory.
 >This Dockerfile will create an image based on Linux Ubuntu, setup Python 2.7 and install the required libs so we can run our Python code.
 
 >The app.py file contains a simple Python application that provides a REST endpoint (/myservice/list) so you can call it from the browser and view a json array with a list of products. We'll not go into details of the code since that's not our focus in this training.
@@ -15,7 +15,7 @@ docker build -t pyapp-image .
 ```
 &nbsp;&nbsp;&nbsp;Docker build will create the image and name it with the '-t' flag using the file in the local folder.
 
-3. Run `docker image` to check your image's been created.
+3. Run `docker images` to check your image's been created.
 
 4. Let's start our container as a deamon so it doesn't block your terminal. Run the following:
 ```
