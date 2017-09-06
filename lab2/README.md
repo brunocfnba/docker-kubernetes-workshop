@@ -15,7 +15,7 @@ docker run --name mycounter brunocf/counter
 4. Open a new terminal window and run `docker ps -a` so you can see your container is running.
 &nbsp;&nbsp;&nbsp;That's great but everything is running on your terminal, that's definitely not the best way to run critical things in your container so let's stop and remove this one.
 
-5. In your terminal (the same window you checked the container status), run `docker stop mycounter` and check if it exited running `docker ps -a`. If that's stopped, run `docker rm mycounter` to get rid of it. When chekcing your container you should see nothing there since we have no containers anymore.
+5. In your terminal (the same window you checked the container status), run `docker stop mycounter` and check if it exited running `docker ps -a`. If that's stopped, run `docker rm mycounter` to get rid of it. When checking your container you should see nothing there since we have no containers anymore.
 
 6. Let's make things right now and run this container as a deamon process so it doesn't lock your terminal when outputting to screen. All you have to do is add the `-d` flag to you docker run command like so:
 ```
