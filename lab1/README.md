@@ -37,12 +37,12 @@ Leave your container prompt by typing `exit`. You'll get back to your local mach
 
 10. Once you have it ready, let's save your changes as a new image to your local repository. Run the following:
 ```
-docker commit myfirstimage myfirstcontainer
+docker commit myfirstcontainer myfirstimage
 ```
 11. Run `docker images` so you can see all your saved or created images. You should be able to see your brand new image!
 
 12. To ensure your changes are all there, let's create and run a container from your new image. Run:
 ```
-docker run -it --name mysavedimage myfirstcontainer /bin/bash
+docker run -it --name mysavedimage myfirstimage /bin/bash
 ```
 13. Once within your new container, go and check for your 'mytest' directory and your 'myfile.txt'. You should see them and now you are able to keep working on that container and save whenever you want to generating a new image.
