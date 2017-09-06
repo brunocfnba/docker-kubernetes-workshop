@@ -20,7 +20,7 @@ bx ic build -t mypyapp .
 5. Now that you have your image ready for use in Bluemix, let's work to run this in Kubernetes.<BR>
 Download the dep-pyapp.yml file from this same repo and store in the same folder.
 
-6. Assuming you are already logged in (case not run `bx login`), `run bx cs init --host https://us-south.containers.bluemix.net` to attach to your Bluemix Kubernetes environment.<BR>
+6. Assuming you are already logged in (case not run `bx login`), run `bx cs init --host https://us-south.containers.bluemix.net` to attach to your Bluemix Kubernetes environment.<BR>
 Then run `bx cs clusters` to get your cluster name.<BR>
 Run `bx cs cluster-config <your cluster name>`. This command will return an export command so you can attach your kubectl tool to the Bluemix Kubernetes cluster.<BR>
 Copy and paste the `export KUBECONFIG=...` command and run it in your terminal.<BR>
@@ -39,6 +39,6 @@ When done run `kubectl get services` and check that you have the service running
 >Go through the service-pyapp.yml file so you have a better understanding of what is going on. This service is of type 'NodePort', reposnsible to expose the internal service to the outside. In our case the service bridges port 8080 (from our app) into port 31001 of the cluster. For more details on services, click [here](https://kubernetes.io/docs/concepts/services-networking/service/).
 
 10. To get our external IP info we have to check what is the Kubernetes cluster worker public IP.<BR>
-Run `bx cs cluster` to get your cluster name then run `bx cs workers <your cluster name>`, get the IP listed under 'Public IP'.
+Run `bx cs clusters` to get your cluster name then run `bx cs workers <your cluster name>`, get the IP listed under 'Public IP'.
 
 11. Open your browser and go to `<your public IP>:31001/myservice/list` and you should see your Python app working. Good job!
