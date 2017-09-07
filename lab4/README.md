@@ -30,6 +30,8 @@ To test your setup run `kubectl get deployments`, if everything is ok you should
 
 8. To create your new deployment run `kubectl create -f dep-pyapp.yml`. Check it's been successfully created running `kubectl get deployments`.<BR>
 You should see the the DESIRED field in the output should be 3 since we want 3 replicas and the CURRENT field should be 3 as well because Kubernetes is working to ensure we have all the replicas working.
+>It may take a while to Kubernetes create the pods within the deployment. It will only be ready when the 'AVAILABLE' status (from the 'get deployments' command) shows a number greater than zero.
+
 >Kubernetes deployment are used to create redundancy accross your pods (the docker containers) as well as allow you to update your containers without downtime. Click [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for more details.
 
 9. Now we need to make this deployment available to the world so everyone can access your microservice. For that we are going to create a service.<BR>
