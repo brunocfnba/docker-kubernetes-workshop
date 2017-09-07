@@ -13,7 +13,7 @@ We are going to use a Dcokerfile I've already created to build our image and run
 ```
 docker build -t pyapp-image .
 ```
-&nbsp;&nbsp;&nbsp;Docker build will create the image and name it with the '-t' flag using the file in the local folder.
+&nbsp;&nbsp;&nbsp;Docker build will create the image and name it with the '-t' flag using the file in the local folder that's why you have to add the dot (.) at the end.
 
 3. Run `docker images` to check your image's been created.
 
