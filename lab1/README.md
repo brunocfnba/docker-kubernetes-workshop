@@ -10,6 +10,8 @@ In this lab, you'll download a ubuntu image from Docker Hub, run a ubuntu contai
 ```
 docker run -it --name myfirstcontainer ubuntu /bin/bash
 ```
+>'-it' flag means that you want to run the container in iteractive mode so you get into the container instead of just running it in the terminal window.<BR>
+>'--name' allows you to give a name to your container for organization purposes, you can give it any name you want to. Then we need to reference the image we created (myfirstimage in our case) and the the command we want docker to run in interactive mode.
 &nbsp;&nbsp;&nbsp;Now you are in your ubuntu container, congrats!
 
 4. Let's create a folder (or directory) and a file in your container and see how its consistency works. Run the following commands:
@@ -39,14 +41,14 @@ Leave your container prompt by typing `exit`. You'll get back to your local mach
 ```
 docker commit myfirstcontainer myfirstimage
 ```
+>The command above you first provide your container name (myfirstcontainer) and then the image name you want to create out of that container (myfirstimage).
 11. Run `docker images` so you can see all your saved or created images. You should be able to see your brand new image!
 
 12. To ensure your changes are all there, let's create and run a container from your new image. Run:
 ```
 docker run -it --name mysavedimage myfirstimage /bin/bash
 ```
->'-it' flag means that you want to run the container in iteractive mode so you get into the container instead of just running it in the terminal window.<BR>
->'--name' allows you to give a name to your container for organization purposes, you can give it any name you want to. Then we need to reference the image we created (myfirstimage in our case) and the the command we want docker to run in interactive mode.
+
 13. Once within your new container, go and check for your 'mytest' directory and your 'myfile.txt'. You should see them and now you are able to keep working on that container and save whenever you want to generating a new image.
 
 14. Exit your container running `exit`.
