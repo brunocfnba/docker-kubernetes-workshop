@@ -45,4 +45,8 @@ docker commit myfirstcontainer myfirstimage
 ```
 docker run -it --name mysavedimage myfirstimage /bin/bash
 ```
+>'-it' flag means that you want to run the container in iteractive mode so you get into the container instead of just running it in the terminal window.<BR>
+>'--name' allows you to give a name to your container for organization purposes, you can give it any name you want to. Then we need to reference the image we created (myfirstimage in our case) and the the command we want docker to run in interactive mode.
 13. Once within your new container, go and check for your 'mytest' directory and your 'myfile.txt'. You should see them and now you are able to keep working on that container and save whenever you want to generating a new image.
+
+14. Exit your container running `exit`.
