@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: pyapp-container
-        image: registry.ng.bluemix.net/<your registry name>/pyapp-alpine:latest
+        image: registry.ng.bluemix.net/<your registry name>/mypyapp:latest
         ports:
         - name: pyapp-port
           containerPort: 8080
