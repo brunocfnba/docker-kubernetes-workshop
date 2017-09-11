@@ -18,7 +18,7 @@ This app uses the Watson Natural Language Understand (NLU) service to analyze it
 
 In order to make a safe application and do not expose our Watson NLU service credentials, Kubernetes comes with a native feature called Secrets that allow you to generate encrypted files to store whatever you want so you don't have to ship them along with your Docker images.
 
-There are several ways to work with secrets in Kubernetes, we are going to use them as volumes since is the way Bluemix allows us to so. Also, Bluemix provide ways, by using its plugins, to bind your service (Watson NLU in our case) to your Kubernetes cluster. For more details about secrets on Kubernetes click [here](https://kubernetes.io/docs/concepts/configuration/secret/) and Kubernetes secrets on Bluemix click [here](https://console.bluemix.net/docs/containers/cs_cluster.html#cs_cluster_service)
+There are several ways to work with secrets in Kubernetes, we are going to use them as volumes since is the way Bluemix allows us to so. Also, Bluemix provides ways, by using its plugins, to bind your service (Watson NLU in our case) to your Kubernetes cluster. For more details about secrets on Kubernetes click [here](https://kubernetes.io/docs/concepts/configuration/secret/) and Kubernetes secrets on Bluemix click [here](https://console.bluemix.net/docs/containers/cs_cluster.html#cs_cluster_service)
 
 2. Let's bind our NLU service to our Kubernetes cluster (the one we have already created).<BR>
 Run `bx service list`. You should be able to see the 'nlu' service you created in the setup guide.<BR>
