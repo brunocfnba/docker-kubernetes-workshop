@@ -27,5 +27,5 @@ When you hit enter, the command should return the container id and then you can 
 
 8. To check the container output you need to check its logs simply running `docker logs <container name>` - in our case mycounter. Everything should be working fine and you have setup your first container using an image from Docker Hub and is able to let it run in the background like a production system runs!
 
-9. If you want to, clean up your environment for the comming labs stopping your container (run `docker stop <container name>`), removing it (run `docker rm <container name>` and removing the downloaded image running `docker rmi <image name>` - you can also use the first 3 characters from the image id.
+9. If you want to, clean up your environment for the coming labs stopping your container (run `docker stop <container name>`), removing it (run `docker rm <container name>` and removing the downloaded image running `docker rmi <image name>` - you can also use the first 3 characters from the image id.
 >Note the difference between removing a container using **rm** and removing an image using **rmi**. You can list your container to get their names running `docker ps -a` and `docker images` to view your images names.
