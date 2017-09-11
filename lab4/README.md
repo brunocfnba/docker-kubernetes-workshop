@@ -9,7 +9,7 @@ In this lab we'll create the same app image we did in Lab 3 but now in Bluemix, 
 >You are downloading a different Dockerfile from Lab 3 since this is using a lighter linux version called [Alpine](https://alpinelinux.org/). The idea is to create the smallest image possible so we have more space to use in the cloud.
 
 3. To run docker commands in Bluemix we are going to use `bx` commands. First run `bx login` to connect to your Bluemix.
-<BR>Provide your e-mail and password. If you have more than one account you have access you might be prompted to select which one you want to log to. Then run `cf target --cf` to select which space in your Bluemix org you want to use.<BR>Now run `bx ic init` to initialize your Bluemix environment.
+<BR>Provide your e-mail and password. If you have more than one account you have access you might be prompted to select which one you want to log to. Then run `bx target --cf` to select which space in your Bluemix org you want to use.<BR>Now run `bx ic init` to initialize your Bluemix environment.
 
 4. To build your Dockerfile in Bluemix, go to your lab4 folder and run:
 ```
