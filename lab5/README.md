@@ -30,3 +30,5 @@ kubectl set image deployment/dep-pyapp pyapp-container=registry.ng.bluemix.net/<
 kubectl rollout undo deployment/dep-pyapp
 ``` 
 &nbsp;&nbsp;&nbsp;Repeat steps 5 and 6 from this lab to view Kubernetes creating the old pods back and then go to the same URL to check the old version has been deployed.
+
+**Good job so far! Now let's create our cognitive app using Kubernetes and Docker, click [here](https://github.com/brunocfnba/docker-kubernetes-workshop/tree/master/lab6) to go to lab 6**
