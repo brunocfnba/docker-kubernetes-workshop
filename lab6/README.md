@@ -42,7 +42,7 @@ Download all the files from this lab into the same folder (lab6).
 kubectl create -f pod-mongo.yml
 ```
 
-6. Run `kubectl get pods` to view all your pods, you should see you 'pod-mongo' is running.
+6. Run `kubectl get pods` to view all your pods, you should see you 'pod-mongo' is running (It might be in 'pending' status while the docker image is being downloaded).
 
 7. In order to make it accessible to other pods and deployments let's create a service to expose this pod internally. Run:
 ```
@@ -79,3 +79,5 @@ kubectl create -f service-nodeapp.yml
 This is the magic in Kubernetes, you just worry about exposing stuff, it handles all the connections and to which replica to  point to for you!
 
 14. Get your cluster ip running `bx cs workers <your cluster name>` and go to `<your cluster ip>:31002` to play around with your app!
+
+**Congrats! You've finished all the labs!**
