@@ -26,3 +26,5 @@ docker run -d --name pyapp-container -p8080:8080 pyapp-image
 5. Check your container is running using `docker ps -a`. You can also view its logs running `docker logs pyapp-container`.
 
 6. Go to your browser and open `localhost:8080/myservice/list`. You should be able to view the json array with some products in it.
+
+**In lab 4 we'll start working with Kubernetes on Bluemix, click [here](https://github.com/brunocfnba/docker-kubernetes-workshop/tree/master/lab4).**
