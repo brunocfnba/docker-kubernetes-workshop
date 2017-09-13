@@ -52,3 +52,5 @@ docker run -it --name mysavedimage myfirstimage /bin/bash
 13. Once within your new container, go and check for your 'mytest' directory and your 'myfile.txt'. You should see them and now you are able to keep working on that container and save whenever you want to generating a new image.
 
 14. Exit your container running `exit`.
+
+**You've made it! Your first docker container is running! Let's move on to lab 2. Click [here](https://github.com/brunocfnba/docker-kubernetes-workshop/tree/master/lab2).**
