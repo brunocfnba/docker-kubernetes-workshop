@@ -29,3 +29,5 @@ When you hit enter, the command should return the container id and then you can 
 
 9. If you want to, clean up your environment for the coming labs stopping your container (run `docker stop <container name>`), removing it (run `docker rm <container name>` and removing the downloaded image running `docker rmi <image name>` - you can also use the first 3 characters from the image id.
 >Note the difference between removing a container using **rm** and removing an image using **rmi**. You can list your container to get their names running `docker ps -a` and `docker images` to view your images names.
+
+**Now that you know some cool stuff about Docker, let's start using Dockerfile to make everything easier. Click [here](https://github.com/brunocfnba/docker-kubernetes-workshop/tree/master/lab3) to go to lab 3**
