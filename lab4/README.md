@@ -44,3 +44,5 @@ When done run `kubectl get services` and check that you have the service running
 Run `bx cs clusters` to get your cluster name then run `bx cs workers <your cluster name>`, get the IP listed under 'Public IP'.
 
 11. Open your browser and go to `<your public IP>:31001/myservice/list` and you should see your Python app working. Good job!
+
+**Now that you have your Python web service running, you'll learn how to make changes to your image. Click [here](https://github.com/brunocfnba/docker-kubernetes-workshop/tree/master/lab5) to go straight to lab 5**
