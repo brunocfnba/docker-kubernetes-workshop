@@ -1,28 +1,30 @@
-# Lab 4 - Running Containers in Bluemix using Docker and Kubernetes
-So far we were able to create containers and run them in our local machine. What about moving them to the cloud and make it available for everyone? This is where we start using Bluemix, the IBM cloud platform to run our cool stuff.
+# Lab 4 - Running Containers on IBM Cloud using Docker and Kubernetes
+So far we were able to create containers and run them in our local machine. What about moving them to the cloud and make it available for everyone? This is where we start using IBM Cloud, the IBM cloud platform to run our cool stuff.
 
-In this lab we'll create the same app image we did in Lab 3 but now in Bluemix, run it as a simple container and then using Kubernetes to ensure scalability and availability.
+In this lab we'll create the same app image we did in Lab 3 but now in IBM Cloud, run it as a simple container and then using Kubernetes to ensure scalability and availability.
 
 1. Make sure you have followed the setup guide so you have all the tools and plugins available for this lab.
 
 2. Download the files from this folder and save them in the same local folder (name it lab4).
 >You are downloading a different Dockerfile from Lab 3 since this is using a lighter linux version called [Alpine](https://alpinelinux.org/). The idea is to create the smallest image possible so we have more space to use in the cloud.
 
-3. To run docker commands in Bluemix we are going to use `bx` commands. First run `bx login` to connect to your Bluemix.
-<BR>Provide your e-mail and password. If you have more than one account you have access you might be prompted to select which one you want to log to. Then run `bx target --cf` to select which space in your Bluemix org you want to use.<BR>Now run `bx ic init` to initialize your Bluemix environment.
+3. To run docker commands in IBM Cloud we are going to use `bx` commands. First run `bx login` to connect to your IBM Cloud.
+<BR>Provide your e-mail and password. If you have more than one account you have access you might be prompted to select which one you want to log to. Then run `bx target --cf` to select which space in your IBM Cloud org you want to use.
 
-4. To build your Dockerfile in Bluemix, go to your lab4 folder and run:
+4. Build your dockerfile locally, go to your lab4 folder and run:
 ```
-bx ic build -t mypyapp .
+docker build -t mypyapp .
 ```
-&nbsp;&nbsp;&nbsp;When done run `bx ic images` to list your images in Bluemix and see your new image.
+&nbsp;&nbsp;&nbsp;When done run `docker images` to list your images on IBM Cloud and see your new image.
 
-5. Now that you have your image ready for use in Bluemix, let's work to run this in Kubernetes.<BR>
+&nbsp;&nbsp;&nbsp;Push your image to the IBM Cloud registry running `docker push registry.ng.bluemix.net/<your namespace>/mypyapp`.
+
+5. Now that you have your image ready for use on IBM Cloud, let's work to run this in Kubernetes.<BR>
 Download the dep-pyapp.yml file from this same repo and store in the same folder.
 
-6. Assuming you are already logged in (case not run `bx login`), run `bx cs init --host https://us-south.containers.bluemix.net` to attach to your Bluemix Kubernetes environment.<BR>
+6. Assuming you are already logged in (case not run `bx login`), run `bx cs init --host https://us-south.containers.bluemix.net` to attach to your IBM Cloud Kubernetes environment.<BR>
 Then run `bx cs clusters` to get your cluster name.<BR>
-Run `bx cs cluster-config <your cluster name>`. This command will return an export command so you can attach your kubectl tool to the Bluemix Kubernetes cluster.<BR>
+Run `bx cs cluster-config <your cluster name>`. This command will return an export command so you can attach your kubectl tool to the IBM Cloud Kubernetes cluster.<BR>
 Copy and paste the `export KUBECONFIG=...` command and run it in your terminal.<BR>
 To test your setup run `kubectl get deployments`, if everything is ok you should get the 'No resources found' message.
 
