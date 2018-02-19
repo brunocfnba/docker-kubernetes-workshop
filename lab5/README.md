@@ -1,13 +1,15 @@
 # Lab 5 - Updating your application with 0 downtime in Kubernetes
 In this lab we are going to perform some updates to our Python application and since we already have our Kubernetes deployment running with 3 replicas, we want our new changes to be applied without any downtime to our end users.
 >In order to go through Lab 5 you must have gone through Lab 4 and completed all its tasks successfully.
-1. Let's build a new image with our changes into Bluemix. Create a 'lab5' directory and download the 'Dockerfile' and 'app2.py' from this lab.
+1. Let's build a new image with our changes into IBM Cloud. Create a 'lab5' directory and download the 'Dockerfile' and 'app2.py' from this lab.
 
-2. Build the new Dockerfile into your Bluemix registry. From your lab5 folder run:
+2. Build the new Dockerfile into your IBM Cloud registry. From your lab5 folder run:
 ```
-bx ic build -t mypyapp2 .
+docker build -t mypyapp2 .
 ```
-&nbsp;&nbsp;&nbsp;Run `bx ic images` and check your new image is there.
+&nbsp;&nbsp;&nbsp;Run `docker images` and check your new image is there.
+
+&nbsp;&nbsp;&nbsp;Push your image to the IBM Cloud registry running `docker push registry.ng.bluemix.net/<your namespace>/mypyapp`.
 
 3. Let's see our three pods that Kubernetes created when we created our deployment with three replicas. Run `kubectl get pods`, you should see three pods with their names starting with the deployment name (in our case dep-pyapp...).
 
