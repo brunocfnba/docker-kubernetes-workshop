@@ -1,6 +1,6 @@
-# Lab 6 - Running a Cognitive App in Kubernetes on Bluemix
+# Lab 6 - Running a Cognitive App in Kubernetes on IBM Cloud
 
-In our last lab we'll setup and run a cognitive app using Kubernetes on Bluemix.
+In our last lab we'll setup and run a cognitive app using Kubernetes on IBM Cloud.
 
 ### About our app
 
@@ -18,7 +18,7 @@ This app uses the Watson Natural Language Understand (NLU) service to analyze it
 
 In order to make a safe application and do not expose our Watson NLU service credentials, Kubernetes comes with a native feature called Secrets that allow you to generate encrypted files to store whatever you want so you don't have to ship them along with your Docker images.
 
-There are several ways to work with secrets in Kubernetes, we are going to use them as volumes since is the way Bluemix allows us to so. Also, Bluemix provides ways, by using its plugins, to bind your service (Watson NLU in our case) to your Kubernetes cluster. For more details about secrets on Kubernetes click [here](https://kubernetes.io/docs/concepts/configuration/secret/) and Kubernetes secrets on Bluemix click [here](https://console.bluemix.net/docs/containers/cs_cluster.html#cs_cluster_service)
+There are several ways to work with secrets in Kubernetes, we are going to use them as volumes since is the way IBM Cloud allows us to so. Also, IBM Cloud provides ways, by using its plugins, to bind your service (Watson NLU in our case) to your Kubernetes cluster. For more details about secrets on Kubernetes click [here](https://kubernetes.io/docs/concepts/configuration/secret/) and Kubernetes secrets on IBM Cloud click [here](https://console.bluemix.net/docs/containers/cs_cluster.html#cs_cluster_service)
 
 2. Let's bind our NLU service to our Kubernetes cluster (the one we have already created).<BR>
 Run `bx service list`. You should be able to see the 'nlu' service you created in the setup guide.<BR>
@@ -54,30 +54,32 @@ kubectl create -f service-mongo.yml
 
 By this time you already have your secret and database ready. We'll create now a deployment for our nodeJS app so we have more than one replica and higher availability and then expose it externally (to the world).
 
-8. Create the nodeJS app image into Bluemix. Run:
+8. Create the nodeJS app image into your local machine. Run:
 ```
-bx ic build -t node-alpine .
+docker build -t node-alpine .
 ```
 
-9. Run `bx ic images` to check your image is there.
+9. Run `docker images` to check your image is there.
 
-10. Open the 'dep-node.yml' file with some text editor and change the image registry to reflect yours (look for the <> on line 14).
+10. Push your image to the IBM Cloud registry running `docker push registry.ng.bluemix.net/<your namespace>/node-alpine`.
 
-11. Run the following command to create your Kubernetes deployment:
+11. Open the 'dep-node.yml' file with some text editor and change the image registry to reflect yours (look for the <> on line 14).
+
+12. Run the following command to create your Kubernetes deployment:
 ```
 kubectl create -f dep-node.yml
 ```
 
-12. Run `kubectl get deployments` to view your deployment is running.
+13. Run `kubectl get deployments` to view your deployment is running.
 >Take a look at the 'dep-node.yml' file you edited. See that we added a volume mount to our container on line 16 and this volume mount is referencing the volume we create right below on line 21 (service-bind-volume). This is how we have a mount point within our image ('/opt/service-bind' in our case) so our code can access all the NLU credentials safely.
 
-13. Our last step is to create the service responsible to expose our node app deployment to the world. Run:
+14. Our last step is to create the service responsible to expose our node app deployment to the world. Run:
 ```
 kubectl create -f service-nodeapp.yml
 ```
 >Looking into the 'service-nodeapp.yml' file you see that this service is of type 'NodePort' that actually exposes the deployment externally (in our case using port 31002). This service exposes the 'app: nodeapp', 'nodeapp-port', if you go back to the 'dep-node.yml' deployment file, you'll see all those labels and port names created there.<BR><BR>
 This is the magic in Kubernetes, you just worry about exposing stuff, it handles all the connections and to which replica to  point to for you!
 
-14. Get your cluster ip running `bx cs workers <your cluster name>` and go to `<your cluster ip>:31002` to play around with your app!
+15. Get your cluster ip running `bx cs workers <your cluster name>` and go to `<your cluster ip>:31002` to play around with your app!
 
 **Congrats! You've finished all the labs!**
