@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
  python2.7 \
  python-pip \
  iputils-ping \
- && pip install --upgrade pip \
+ && python -m pip install --upgrade pip \
  && pip install flask \
  && pip install flask-cors \
  && pip install flask-api
